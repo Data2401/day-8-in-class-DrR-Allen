@@ -1,9 +1,8 @@
 ---
 title: "Lists - In Class Exercises"
-author: "Dr. Shoemaker"
+author: "Rudolph Allen"
 date: "DATA 2401"
-output:nhtml_document
-
+output: html_document
 ---
 
 # Exercises: 
@@ -11,16 +10,24 @@ output:nhtml_document
 Make a list that contains the information on a single playing card. Suit, face, and value. 
 
 ```{r}
-
-
+playing_cards <- list(
+ suit = "Hearts",
+ value = "`10",
+ face = "Queen"
+)
+playing_cards
 ```
 
 
 Make a second list where each element contains all the options for suit, face, and value, respectively. 
 
 ```{r}
-
-
+playing_cards_ops <- list(
+  suit = c('Hearts', 'Spades', 'Diamonds', 'Clubs' ),
+  face = c(1:10, "Jack", "Queen", "Aces"),
+  value = c(1:10, 10, 10, 10)
+)
+str(playing_cards_ops)
 ```
 
 
@@ -28,7 +35,7 @@ If `Newlist <- list(a=1:10, b="Good morning", c="Hi")`, write an R statement tha
 
 ```{r}
 Newlist <- list(a=1:10, b="Good morning", c="Hi")
-
+Newlist[[1]] + 1
 
 ```
 
@@ -36,7 +43,9 @@ If `b <- list(a=1:10, c="Hello", d="AA")`, write an R expression that will give 
 
 ```{r}
 b <- list(a=1:10, c="Hello", d="AA")
-
+b[1]
+b$a[-2]
+b$a[b$a > 7] #Filtering Index to apply the logic. This means that the command is only looking at the element a
 
 ```
 
@@ -44,6 +53,8 @@ Let `x <- list(a=5:10, c="Hello", d="AA")`, write an R statement to add a new it
 
 ```{r}
 x <- list(a=5:10, c="Hello", d="AA")
+x$z
+x$z <- "NewItem"
 
-
+str(x)
 ```
